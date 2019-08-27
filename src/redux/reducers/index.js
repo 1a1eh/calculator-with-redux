@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { todos } from './todos';
+import { currentExpression } from './currentExpression';
+import { history } from './history';
 
 const RootReducer = combineReducers({
-	todos
+	currentExpression,
+	history
 });
 export default RootReducer;

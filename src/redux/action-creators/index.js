@@ -1,11 +1,26 @@
-import cuid from 'cuid'
+import { AddOperation, AddNumber, AddHistory } from '../action-types/index';
 
-import { ADD } from '../action-types/index';
-
-export const addList = (text) => {
+export const numToExpression = (num) => {
 	return {
-		type: ADD,
-		text,
-		id: cuid()
+		type: AddNumber,
+		num
 	};
 };
+
+export const opToExpression = (op) => {
+	return {
+		type: AddOperation,
+		op
+	};
+};
+
+export const addHistory = (expression) => {
+	return {
+		type: AddHistory,
+		payload: {
+			expression,
+			result: eval(expression.replace(/=\s*$/, ''))
+		}	
+	};
+};
+

@@ -1,3 +1,3 @@
-export const ADD = "ADD";
-export const TOGGLE = "TOGGLE";
-export const DELETE = "DELETE";
+export const AddOperation = "AddOperation";
+export const AddNumber = "AddNumber";
+export const AddHistory = "AddHistory";
