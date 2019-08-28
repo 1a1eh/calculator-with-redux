@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody } from 'reactstrap';
+import { Card, CardBody, CardHeader } from 'reactstrap';
 import { connect } from 'react-redux';
 
 // const historyList = (list) => {
@@ -16,8 +16,10 @@ const History = ({ history }) => {
 			{history &&
 			history.length > 0 && (
 				<Card>
-					<CardBody>
+					<CardHeader>
 						<h1>History</h1>
+					</CardHeader>
+					<CardBody>
 						{history.map((item, index) => (
 							<h5 key={index}>
 								{item.expression} = {item.result}

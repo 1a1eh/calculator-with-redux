@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody } from 'reactstrap';
+import { Card, CardBody, CardHeader } from 'reactstrap';
 import { numToExpression, opToExpression, addHistory } from '../redux/action-creators/index';
 import { connect } from 'react-redux';
 
@@ -10,8 +10,10 @@ const Calculator = ({ expression, numberToExpression, operationToExpression, add
 	return (
 		<div style={{ margin: '40px auto', textAlign: 'center', width: '500px' }}>
 			<Card>
-				<CardBody>
+				<CardHeader>
 					<h1>Calculator</h1>
+				</CardHeader>
+				<CardBody>
 					<h4>
 						{number.map((num) => (
 							<button key={num} onClick={() => numberToExpression(num)}>
