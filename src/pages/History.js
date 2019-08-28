@@ -2,25 +2,26 @@ import React from 'react';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import { connect } from 'react-redux';
 
-// const historyList = (list) => {
-// 	if (list.length > 9) {
-// 		return list.splice(list.length - 10, list.length);
-// 	}
-// 	console.log(list);
-// 	return list;
-// };
+const historyList = (history) => {
+	let historyCopy = [...history];
+	if (historyCopy.length > 9) {
+		return historyCopy.splice(-10, 10);
+	}
+	return historyCopy;
+};
 
 const History = ({ history }) => {
+	let list = historyList(history);
 	return (
 		<div style={{ margin: '40px auto', textAlign: 'center', width: '500px' }}>
-			{history &&
-			history.length > 0 && (
+			{list &&
+			list.length > 0 && (
 				<Card>
 					<CardHeader>
 						<h1>History</h1>
 					</CardHeader>
 					<CardBody>
-						{history.map((item, index) => (
+						{list.reverse().map((item, index) => (
 							<h5 key={index}>
 								{item.expression} = {item.result}
 							</h5>
