@@ -20,7 +20,6 @@ export const addHistory = (expression) => {
 		payload: {
 			expression,
 			result: eval(expression.replace(/=\s*$/, ''))
-		}	
+		}
 	};
 };
-

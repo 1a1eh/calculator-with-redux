@@ -4,7 +4,7 @@ import { numToExpression, opToExpression, addHistory } from '../redux/action-cre
 import { connect } from 'react-redux';
 
 const number = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-const op = [ '+', '-', '*', '/', '=' ];
+const op = [ '+', '-', '=', '*', '/' ];
 
 const Calculator = ({ expression, numberToExpression, operationToExpression, addHistoryItem }) => {	
 	return (
