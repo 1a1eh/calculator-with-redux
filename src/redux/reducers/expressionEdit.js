@@ -8,7 +8,7 @@ export const expressionEdit = (state = initState, action) => {
 		case ADD_OPERATOR:
 			return state + action.op;
 		case ADD_HISTORY_ITEM:
-			return '';
+			return initState;
 		default:
 			return state;
 	}
