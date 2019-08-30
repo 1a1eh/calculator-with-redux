@@ -15,7 +15,6 @@ export const numberToExpression = (num) => {
 };
 
 export const addHistoryItem = (expression) => {
-    console.log(expression)
 	return {
 		type: ADD_HISTORY_ITEM,
 		payload: {

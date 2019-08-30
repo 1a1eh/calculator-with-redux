@@ -10,7 +10,9 @@ const Calculator = ({ numberToExpression, opToExpression, addHistoryItem, expres
 	return (
 		<div style={{ margin: '50px auto', width: '500px', textAlign: 'center' }}>
 			<Card>
-				<CardHeader><h1>Calculator</h1></CardHeader>
+				<CardHeader>
+					<h1>Calculator</h1>
+				</CardHeader>
 				<CardBody>
 					<h3>
 						{numbers.map((num) => (
@@ -30,7 +32,7 @@ const Calculator = ({ numberToExpression, opToExpression, addHistoryItem, expres
 						))}
 					</h3>
 					<h3>
-						<input style={{textAlign: 'center'}} disabled={true} value={expression} />
+						<input style={{ textAlign: 'center' }} disabled={true} value={expression} />
 					</h3>
 				</CardBody>
 			</Card>
