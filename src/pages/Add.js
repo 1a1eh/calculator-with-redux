@@ -3,12 +3,6 @@ import { Card, CardBody, CardHeader, CardFooter, Button } from 'reactstrap';
 import { onAddItem } from '../redux/action-creators/index';
 import { connect } from 'react-redux';
 
-const onSubmit = (e, onAdd, value) => {
-	e.prevenDefault = '';
-	onAdd(value);
-	value = '';
-};
-
 const Add = ({ onAdd }) => {
 	const [ value, setValue ] = React.useState('');
 	return (
@@ -21,7 +15,14 @@ const Add = ({ onAdd }) => {
 					<input value={value} onChange={(e) => setValue(e.target.value)} />
 				</CardBody>
 				<CardFooter>
-					<Button type="submit" onClick={(e) => onSubmit(e, onAdd, value)}>
+					<Button
+						type="submit"
+						onClick={(e) => {
+							onAdd(value);
+							e.preventDefault('');
+							setValue('');
+						}}
+					>
 						+ Add Todo
 					</Button>
 				</CardFooter>

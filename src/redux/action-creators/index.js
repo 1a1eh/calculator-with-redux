@@ -1,14 +1,17 @@
 import { ADD, TOGGLE } from '../action-types/index';
-import ucid from 'ucid';
+import cuid from 'cuid';
 
 export const onAddItem = (text) => {
 	return {
 		type: ADD,
 		text,
-		id: ucid
+		id: cuid()
 	};
 };
 
-export const onToggle = (id) => {
-	
+export const onToggleItem = (id) => {
+	return {
+		type: TOGGLE,
+		id
+	}
 };
