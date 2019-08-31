@@ -26,7 +26,7 @@ const List = ({ list, onToggle, onDelete }) => {
 									color="danger"
 									onClick={() => onDelete(item.id)}
 								>
-									Delete
+									- Delete
 								</Button>
 							</div>
 						))}
