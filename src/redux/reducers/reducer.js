@@ -1,4 +1,4 @@
-import { ADD, TOGGLE } from '../action-types/index';
+import { ADD, TOGGLE, DELETE } from '../action-types/index';
 
 const initState = [];
 export const reducer = (state = initState, action) => {
@@ -17,10 +17,14 @@ export const reducer = (state = initState, action) => {
 				if (item.id === action.id) {
 					return {
 						...item,
-						completed: !action.completed
+						completed: !item.completed
 					};
 				}
 				return item;
+			});
+		case DELETE:
+			return state.filter((item) => {
+				return item.id !== action.id;
 			});
 		default:
 			return state;

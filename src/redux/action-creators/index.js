@@ -1,4 +1,4 @@
-import { ADD, TOGGLE } from '../action-types/index';
+import { ADD, TOGGLE, DELETE } from '../action-types/index';
 import cuid from 'cuid';
 
 export const onAddItem = (text) => {
@@ -13,5 +13,12 @@ export const onToggleItem = (id) => {
 	return {
 		type: TOGGLE,
 		id
-	}
+	};
+};
+
+export const onDeleteItem = (id) => {
+	return {
+		type: DELETE,
+		id
+	};
 };

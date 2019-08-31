@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardBody, CardHeader, Button } from 'reactstrap';
 import { connect } from 'react-redux';
-import { onToggleItem } from '../redux/action-creators/index';
+import { onToggleItem, onDeleteItem } from '../redux/action-creators/index';
 
-const List = ({ list, onToggle }) => {
+const List = ({ list, onToggle, onDelete }) => {
 	return (
 		<div style={{ width: '500px', margin: '40px auto', textAlign: 'center' }}>
 			{list &&
@@ -19,7 +19,15 @@ const List = ({ list, onToggle }) => {
 								onClick={() => onToggle(item.id)}
 								style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
 							>
-								{item.text}
+								<span>{item.text}</span>
+								<Button
+									style={{ margin: '10px 20px' }}
+									size="sm"
+									color="danger"
+									onClick={() => onDelete(item.id)}
+								>
+									Delete
+								</Button>
 							</div>
 						))}
 					</CardBody>
@@ -34,7 +42,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToprops = (dispatch) => ({
-	onToggle: (id) => dispatch(onToggleItem(id))
+	onToggle: (id) => dispatch(onToggleItem(id)),
+	onDelete: (id) => dispatch(onDeleteItem(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToprops)(List);
