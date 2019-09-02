@@ -34,4 +34,5 @@ const Add = ({ onAdd }) => {
 const mapDispatchToProps = (dispatch) => ({
 	onAdd: (text) => dispatch(onAddItem(text))
 });
+
 export default connect(null, mapDispatchToProps)(Add);
